@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #555;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        section {
+            display: none;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CloudSolutions</h1><br/>
+        <p>Welcome to the website!</p>
+    </header>
+
+    <nav>
+        <a onclick="showSection('About us')">About us</a>
+        <a onclick="showSection('services')">Services</a>
+        <a onclick="showSection('connection')">Connection</a>
+        <a onclick="showSection('reviews')">Reviews</a>
+    </nav>
+
+    <section id="About us">
+        <h2></h2>
+        <p>CLoudSolutions was founded in the need of a webhosting service, where you can create and host your own website</p><br/>
+        <p>The Founders: </p><br/>
+            <p>Katona Péter Krisztián</p>
+            <p>Szitányi Bence</p>
+            <p>Madarász Olivér</p>
+        <!-- Add your content here -->
+    </section>
+
+    <section id="services">
+        <h2>The services we offer:</h2><br/>
+        <p>website creation</p>
+        <p>database connection</p>
+        <!-- Add your content here -->
+    </section>
+
+    <section id="connection">
+        <h2>Connections</h2>
+        <p>Our team is the best available on the following email address:</p>
+        <p><u>support@cloudsolutions.com</u></p>
+        <!-- Add your content here -->
+    </section>
+
+
+
+    <section id="reviews">
+            <h2>Customer Reviews</h2>
+    
+            <div class="review">
+                <p><strong>John Doe:</strong> Excellent service! I'm very satisfied with CloudSolutions.</p>
+            </div>
+    
+            <div class="review">
+                <p><strong>Jane Smith:</strong> Quick response to issues. Keep up the good work!</p>
+            </div>
+    
+            <!-- More reviews can be added here -->
+    
+            <form id="review-form">
+                <h3>Add Your Review</h3>
+                <textarea id="review-text" placeholder="Write your review here..." rows="4"></textarea>
+                <button type="button" onclick="submitReview()">Submit Review</button>
+            </form>
+
+    
+        <script>
+            function submitReview() {
+                var reviewText = document.getElementById('review-text').value;
+    
+                if (reviewText.trim() !== '') {
+                    var reviewsContainer = document.getElementById('reviews-container');
+                    var newReview = document.createElement('div');
+                    newReview.className = 'review';
+                    newReview.innerHTML = '<p><strong>User:</strong> ' + reviewText + '</p>';
+                    reviewsContainer.insertBefore(newReview, reviewsContainer.firstChild);
+    
+                    // Clear the textarea after submitting the review
+                    document.getElementById('review-text').value = '';
+                } else {
+                    alert('Please enter a review before submitting.');
+                }
+            }
+        </script>
+    </section>
+
+
+
+    <footer>
+        <p>&copy; 2023 CLoudSolutions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            var selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
